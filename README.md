@@ -4,9 +4,9 @@ will also be found useful for training speech recognition models.  The data cons
 images (96 x 96 x 3), as well as isolated mouth images (40 x 40, grayscale), the corresponding sound samples for
 each frame (sampled at 25 or 30 fps, depending on video) and the corresponding caption files, in vtt form.  These
 caption files, along with audio power RMS detection in the samples themselves, were used to build frame-wise estimates
-of where each word is spoken in each video.  There are >8000 unique words in these videos, (>205k words in all) with
->3000 words spoken at least 5 times (which will yield 10 training examples with the images flipped across their 
-horizontal axis)
+of where each word is spoken in each video.  There are more than 8000 unique words in these videos, (more than 205k words 
+in all) with more than 3000 words spoken at least 5 times (which will yield 10 training examples with the images flipped 
+across their horizontal axis)
 
 This Repo holds matlab files used to process avi files, split them into images and sound samples at 
 various (user selectable) sample rates, and then take face-isolated and mouth-isolated images and use
