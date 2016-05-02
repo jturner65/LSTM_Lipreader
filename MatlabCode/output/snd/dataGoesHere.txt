@@ -1,0 +1,1 @@
+put all directories containing snd data here for vids XXX_xvid (with id #'s <= 132)

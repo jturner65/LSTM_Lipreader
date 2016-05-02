@@ -1,0 +1,1 @@
+put all imgMatSmall_<###>_xvid.mat files in this dir
