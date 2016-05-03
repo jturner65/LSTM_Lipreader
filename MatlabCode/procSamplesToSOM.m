@@ -39,6 +39,9 @@ c = clock
 outSOMTxtFile = 'output/sndSOM/somDataTxt.txt';
 outSOMMatFile = 'output/sndSOM/somDataTxt.mat';
 normedOutSOMMatFile = 'output/sndSOM/normedSOMDataTxt.mat';
+% outSOMTxtFile = 'output/imgSOM/somDataTxt.txt';
+% outSOMMatFile = 'output/imgSOM/somDataTxt.mat';
+% normedOutSOMMatFile = 'output/imgSOM/normedSOMDataTxt.mat';
 %build lrn's from mat file
 
 %buildSOM_LRNfile(10000,36,1);
@@ -46,6 +49,7 @@ normedOutSOMMatFile = 'output/sndSOM/normedSOMDataTxt.mat';
 %train som on range of lrn files
 somDir = 'D:/somoclu/repo/src/Windows/somoclu/x64/Release';
 fileDir = 'D:/LipReaderProject/listeningeye/MatlabCode/FaceDetectCrop/output/sndSOM';
+%fileDir = 'D:/LipReaderProject/listeningeye/MatlabCode/FaceDetectCrop/output/vidSOM';
 %'-k #' means either cpu (0) or gpu (1)
 %note - for some reason the cpu mpi method is faster than gpu.
 runSomocluOnFiles(fileDir, somDir, 10000,6,36,'-k 0');
