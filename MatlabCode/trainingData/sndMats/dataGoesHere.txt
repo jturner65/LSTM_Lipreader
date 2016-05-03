@@ -1,0 +1,1 @@
+put all out_<###>_xvid.mat sound matrix files in this dir
