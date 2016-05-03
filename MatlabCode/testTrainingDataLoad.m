@@ -6,15 +6,20 @@
 %word,FrameStEstimate,FrameEndEstimate,SentenceLocation,audioAugFrameStEstimate,audioAugFrameEndEstimate,CaptionsStartTime,CaptionsEndTime,FileName,TimeCaption																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																						
 %-->file that holds list of videos required needs to live in directory trainingData
 %and be called "training_NecessaryVids.csv" <-- not much benefit, spans all
-%files.  NEED TO WRAP VID FILE OPENS IN TRY, since some havent' been
-%converted
+%files.  
 %-->file that holds list of words as classes needs to be in same dir
 %and be called "training_ChosenWords.csv" 
 clear;
-baseDir = 'D:/LipReaderProject/listeningeye/MatlabCode/FaceDetectCrop/';
+baseDir = 'D:/LipReaderProject/LSTM_Lipreader/LSTM_Lipreader/MatlabCode/';
 seqLength = 25;
 fileInfo = trainingDataFormat(baseDir, seqLength);
 newTrain = 1;
+
+
+%copy sound matrices into training dir
+%D:\LipReaderProject\LSTM_Lipreader\LSTM_Lipreader\MatlabCode\trainingData\sndMats
+%D:\LipReaderProject\LSTM_Lipreader\LSTM_Lipreader\MatlabCode\output_2\snd
+
 
 %build 2 matrices, 1600 x seqLength x total# of training examples, 
 %and cls%(1-hot class value) x seqLength x total# of training examples
@@ -32,6 +37,7 @@ else
     trainRaw = tmp.trainRaw;
     numClasses = tmp.numClasses;
 end
+%trainRaw : holds frame span of all word examples in training data
 %build sample data based on info from trainRaw matrix, build class data
 %from info from classData and trainRaw matrices
 %for each example we have 1600x25 sequences in sampleData - #rows of

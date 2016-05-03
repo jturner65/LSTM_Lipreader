@@ -16,9 +16,12 @@ function res = trainingDataFormat(basedir, seqSpan)
     fld13 = 'trnNum_AudFrameStIDX';     val13 = 4;          %column with audio-data-assisted start idx
     fld14 = 'trnNum_AudFrameEndIDX';    val14 = 5;          %column with audio-data-assisted end idx 
     fld15 = 'trnNum_VidFileNameIDX';    val15 = 8;          %column in numericcsv with number of video file name
+
+    fld16 = 'sndMatNamePrefix';         val16 = 'out_';
+    fld17 = 'sndMatDir';                val17 = strcat(val1,'trainingData/sndMats/');
     
     res = struct(fld1,val1,fld2,val2,fld3,val3,fld4,val4, ...
         fld5,val5,fld6,val6,fld7,val7,fld8,val8,fld9,val9, ...
         fld10,val10,fld11,val11,fld12,val12,fld13,val13, ...
-        fld14,val14, fld15, val15);
+        fld14,val14, fld15, val15, fld16, val16, fld17, val17);
 end

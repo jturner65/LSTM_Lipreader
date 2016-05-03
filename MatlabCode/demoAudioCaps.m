@@ -1,9 +1,9 @@
 %process audio for a single video - find breaks between words based on
 %sound level, record word spans in frames
 vidNum = '1000';
-a = load(strcat('D:/LipReaderProject/listeningeye/MatlabCode/FaceDetectCrop/output_2/snd/',vidNum,'_xvid/out_',vidNum,'_xvid.mat'));
-%vids = load('D:/LipReaderProject/listeningeye/MatlabCode/FaceDetectCrop/output_2/alignedImgs/imgMatBig_',vidNum,'_xvid');
-ftoread =strcat('D:/LipReaderProject/listeningeye/MatlabCode/FaceDetectCrop/output_2/snd/',vidNum,'_xvid/wordScript_',vidNum,'_xvid.csv');
+a = load(strcat('D:/LipReaderProject/LSTM_Lipreader/LSTM_Lipreader/MatlabCode/output_2/snd/',vidNum,'_xvid/out_',vidNum,'_xvid.mat'));
+%vids = load('D:/LipReaderProject/LSTM_Lipreader/LSTM_Lipreader/MatlabCode/output_2/alignedImgs/imgMatBig_',vidNum,'_xvid');
+ftoread =strcat('D:/LipReaderProject/LSTM_Lipreader/LSTM_Lipreader/MatlabCode/output_2/snd/',vidNum,'_xvid/wordScript_',vidNum,'_xvid.csv');
 
 audioDataAra = a.audioDataAra;
 numFrames = size(audioDataAra,2);
@@ -32,7 +32,7 @@ while ischar(tline)
 %       % Waiting for sound to finish
 %     end
    
-    pause(0.5);
+    pause(0.1);
     stop(player);
     tline = fgetl(fid);
 

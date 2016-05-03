@@ -18,12 +18,12 @@ function [classRes, trainRes] = buildTrainDataForClass(classIDX, fileInfo, train
         if(fileIDX > 1118) 
             continue;
         end
-        imgMatFileName = buildImgMatName(fileIDX,fileInfo);
+        srcMatFileName = buildImgMatName(fileIDX,fileInfo);
         try
             %some mat files do not exist yet
-            tmp = load(imgMatFileName);
+            tmp = load(srcMatFileName);
         catch ME
-            disp(strcat('file does not exist',imgMatFileName));
+            disp(strcat('file does not exist',srcMatFileName));
             continue;
         end
         imgAra = tmp.imgSmallMat;
@@ -83,7 +83,7 @@ function [classRes, trainRes] = buildTrainDataForClass(classIDX, fileInfo, train
                 disp('idx error not written to trainres!');
             end        
         end%for each example   
-        disp(strcat('Done with file :',{' '},imgMatFileName));
+        disp(strcat('Done with file :',{' '},srcMatFileName));
     end%for every unique file
     disp('Done');
     %save(classDataName,'classRes','trainRes');
