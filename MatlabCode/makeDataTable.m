@@ -1,5 +1,5 @@
-
-function res = makeDataTable(stRow, endRow, numRows, numCols, outFileName,tmpAra)
+%need precision by which we will write data value - log2 +1 of max # of samples per file
+function res = makeDataTable(stRow, endRow, numRows, numCols, outFileName,tmpAra, precStr)
     fileID = fopen(outFileName,'W');%cap W means no flushing between read/write
     numDataCols = (numCols-1);
     fprintf(fileID,'# sound samples to be used to train SOM for building output class vector\n');
@@ -18,7 +18,7 @@ function res = makeDataTable(stRow, endRow, numRows, numCols, outFileName,tmpAra
     fprintf(fileID,'\n');
     disp(strcat('strow : ',num2str(stRow),' endrow : ',num2str(endRow)));
     for i = 1:numRows
-        tmpStr = num2str(tmpAra(i,:),'%.5f ');        
+        tmpStr = num2str(tmpAra(i,:),precStr);        
         fprintf(fileID,'%s \n', tmpStr);
     end
     fclose(fileID);

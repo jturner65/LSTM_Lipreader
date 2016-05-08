@@ -38,6 +38,7 @@ function buildAndSaveFaceMat(fileInfo,useZeros)
     sortedImgIDXList = sort(imgIDXList);
     iters = size(sortedImgIDXList,1);
     stX = 29;stY = 55; endX = 68; endY = 94;wd = 40; ht = 40;
+    image1 = zeros(96,96,3);
     for incr = 1:iters
         strIDX = num2str(sortedImgIDXList(incr));
         if(1==useZeros)
@@ -53,25 +54,32 @@ function buildAndSaveFaceMat(fileInfo,useZeros)
         end
         
         imageName = strcat(useImgDir,strIDX,'.png');
-        image1 = rgb2gray(im2single(imread(imageName)));  
-%         try
-%             image1 = rgb2gray(im2single(imread(imageName)));   
-%         catch ME
-%             disp('try again')
+        try
+            oldImage = image1;
+            image1 = rgb2gray(im2single(imread(imageName)));  
+            %image1 = imread(imageName);  
+        catch ME
+            %sysCmd = strcat('del ',{' '},imageName);
+            disp(strcat('error with image name : ',imageName));
+%             try
+%                 retCode = system(sysCmd);
+%                 disp(strcat('file deleted with retcode:',retCode));
 %             
-%             imageName = strcat(fileInfo.algnImgFileNameBase,strIDX,'.png');
-%             disp(imageName);
-% 
-%             image1 = rgb2gray(im2single(imread(imageName)));  
-%         end
-        %put in big matrix
-        imgBigMat(:,sortedImgIDXList(incr))= image1(:);
-        %imageSmall = imresize(imcrop(image1,[25 48 48 48]),[40 40]);
-        %imageSmall = imcrop(image1,[29 55 39 39]);
-        imageSmall = image1(stY:endY,stX:endX);
-        %imshow(imageSmall);
-        imgSmallMat(:,sortedImgIDXList(incr)) = imageSmall(:);        
+%             catch ME2
+%                 disp(strcat('unable to del via :',sysCmd));
+%             end
+            image1 = oldImage;
+            continue;
+        end
+
+%         %put in big matrix
+         imgBigMat(:,sortedImgIDXList(incr))= image1(:);
+%         %imageSmall = imresize(imcrop(image1,[25 48 48 48]),[40 40]);
+%         %imageSmall = imcrop(image1,[29 55 39 39]);
+         imageSmall = image1(stY:endY,stX:endX);
+%         %imshow(imageSmall);
+         imgSmallMat(:,sortedImgIDXList(incr)) = imageSmall(:);        
     end
-   save(fileInfo.algnImgSavMatBig,'imgBigMat');
-   save(fileInfo.algnImgSavMatSmall,'imgSmallMat');    
+    save(fileInfo.algnImgSavMatBig,'imgBigMat');
+    save(fileInfo.algnImgSavMatSmall,'imgSmallMat');    
 end

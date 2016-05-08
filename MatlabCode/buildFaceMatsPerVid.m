@@ -1,7 +1,7 @@
-lear%%this program will build matlab arrays holding an entire video's worth of
+clear%%this program will build matlab arrays holding an entire video's worth of
 %%isolated face images, 1 per column
 
-baseDir =  'D:/LipReaderProject/listeningeye/MatlabCode/FaceDetectCrop/';
+baseDir =  'D:/LipReaderProject/LSTM_Lipreader/LSTM_Lipreader/MatlabCode/';
 outputDir = {'output','output_2'};
 %note : output directory vids have single layer of file name, but 
 %output_2 directory vids have 2x layer of file name directories
@@ -19,19 +19,20 @@ dirIDX = 2;
         end
 
         fileInfo = fileDataWithOutputStruct(strcat(alnImgDirList(incr).name,'.abc'), outputDir(dirIDX));
-        smMatName = strcat(baseDir,fileInfo.algnImgSavMatSmall);
-        if exist(smMatName, 'file') == 2
-            disp(strcat('Skip matrix for ',{' '},smMatName));
-            continue;
-        end
-        %disp(strcat('aligned img dir : ', fileInfo.alignImgDir, ' with outputdir : ',outputDir(dirIDX)));
-        %put all images into single matrix
-        %check if done first
         if(size(fileInfo.baseFileName,2) < 4) 
             disp(strcat('Small name ',{' '},fileInfo.baseFileName));  
             continue;
         end
-        disp(strcat('Build matrix for ',{' '},fileInfo.baseFileName));  
+        smMatName = strcat(baseDir,fileInfo.algnImgSavMatSmall);
+        if exist(smMatName, 'file') == 2
+            disp(strcat('Skip matrix for ',{' '},fileInfo.baseFileName));
+            continue;
+        else
+            disp(strcat('Build matrix for ',{' '},fileInfo.baseFileName));  
+   
+        end
+        %disp(strcat('aligned img dir : ', fileInfo.alignImgDir, ' with outputdir : ',outputDir(dirIDX)));
+        %put all images into single matrix
         buildAndSaveFaceMat(fileInfo, dirIDX-1);
     end
     delete(gcp('nocreate'));
