@@ -20,7 +20,7 @@ word.
 The data used for this project was acquired from the weekly addresses of President Obama from 2009-2015, which 
 consisted of 310 4-8 minute videos.  The data can be found here : 
 
-https://www.dropbox.com/sh/21m2byeocbbl2wg/AACPePzQlU-YOcOzKy7W6Rwpa?dl=0
+https://www.dropbox.com/sh/1gjaeb7yhbxxpv4/AADgNnJQ5gZzAmWVRFDKJE3Ea?dl=0
 
 This link will expire on 6/1/2016. After this date, please email this jturner65@gatech.edu to get access.
 
