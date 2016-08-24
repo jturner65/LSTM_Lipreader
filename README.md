@@ -18,7 +18,7 @@ This repo also holds data pertaining to estimated frame-wise caption locations f
 word.
 
 The data used for this project was acquired from the weekly addresses of President Obama from 2009-2015, which 
-consisted of 310 4-8 minute videos.  The data can be found here : 
+consisted of 310 4-8 minute videos.  The data can be found here  : 
 
 https://www.dropbox.com/sh/1gjaeb7yhbxxpv4/AADgNnJQ5gZzAmWVRFDKJE3Ea?dl=0
 
