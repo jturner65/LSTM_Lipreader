@@ -22,7 +22,7 @@ consisted of 310 4-8 minute videos.  The data can be found here  :
 
 https://www.dropbox.com/sh/1gjaeb7yhbxxpv4/AADgNnJQ5gZzAmWVRFDKJE3Ea?dl=0
 
-This link will expire on 6/1/2016. After this date, please email this jturner65@gatech.edu to get access.
+This link will expire on 6/1/2016. After this date, please email this 7strbass 'at' gmail.com to get access.
 
 Included in this dataset is also a 100 x 100 node torroidal hex SOM trained on the audio data of the first 
 130 of the videos.  The library used to build this SOM is somoclu, found here : https://github.com/peterwittek/somoclu
